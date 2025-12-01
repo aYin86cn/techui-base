@@ -1,4 +1,3 @@
-
 import { createRouter, createWebHashHistory } from 'vue-router';
 
 const router = createRouter({
@@ -6,7 +5,7 @@ const router = createRouter({
   history: createWebHashHistory(),
   routes :[
     { path: "/", name: "Home", redirect:"/componentNav",},
-    { path: "/componentNav", name: "componentNav", component:()=>import("@view/navigation/index-nav.vue"), meta: { hideInTab: true }},
+    { path: "/componentNav", name: "componentNav", component:()=>import("@/view/navigation/index-nav.vue"), meta: { hideInTab: true }},
   ]
 });
 

@@ -1,22 +1,7 @@
 <script setup>
 import { getCurrentInstance, onMounted, reactive } from "vue";
-
 const {proxy:{$tState,$tService}}=getCurrentInstance();
-
-const state=reactive({
-  routerNavConfig:{
-    options:[
-      {label:"工作台",path:"/"},
-      {label:"组件Nav",path:"/componentNav"},
-      {label:"TechUIColor",path:"/techUIColorsV1"},
-    ],
-    triggerPosition:"right",
-    triggerStyle:"react",
-    triggerAni:true,
-    buttonWidth:200,
-    modal:true,
-  },
-})
+const state=reactive({ })
 
 onMounted(() => {
   const extension=[
@@ -30,16 +15,13 @@ onMounted(() => {
   $tState.controlPanel.extension=extension//拓展控制面板
   // $tState.controlPanel.exclusion=["t3D"]//排除控制面板
   // $tState.controlPanel.width=450
-
   
 })
-
 </script>
 
 <template>
   <TuiProvider>
     <router-view></router-view>
-    <TuiRouterNav v-bind="state.routerNavConfig"/>
   </TuiProvider>
 </template>
 

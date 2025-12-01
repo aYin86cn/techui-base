@@ -145,17 +145,17 @@ onMounted(() => {
   </TuiAdaptive>
 </template>
 <style lang="less">
-.comps-demo-nav-wrap{.poa; inset:0; display: flex; pointer-events: all;
+.comps-demo-nav-wrap{position: absolute; inset:0; display: flex; pointer-events: all;
   &:not( .comps-cur-2B-2B2,.comps-cur-2A-2A1){
-    .bgc(var(--common-bg_layer));
-    .tui-cda-cont{.bgc(var(--common-bg_layer));}
+    background-color: var(--common-bg_layer);
+    .tui-cda-cont{background-color: var(--common-bg_layer);}
   }
-  .tui-cda-sider{.por; .flex; flex-direction: column;
-    .bxsi(20%,@bk,5px,-5px);
-    .tui-logo-wrap{.centerFlex; .bgc(var(--shadow-weaker)); padding:5px 0; 
+  .tui-cda-sider{position: relative; display: flex; gap: 0; flex-direction: column;
+    box-shadow:-5px 0 5px 0 fade(#000,20%) inset;
+    .tui-logo-wrap{display: flex; justify-content: center; align-items: center; background-color: var(--shadow-weaker); padding:5px 0; 
       .tui-logo{--tui-logo-fz:18px;}
     }
-    .bdr(var(--common-bd)); 
+    border-right: 1px solid var(--common-bd); 
     background-image: linear-gradient(45deg,var(--sider-bg-grad_pri),var(--sider-bg-grad_sec) 50%,var(--sider-bg-grad_thi));
     &.is-collapse{width: 60px; padding:0 0 60px 0;
       .tui-cda-assist{
@@ -163,13 +163,13 @@ onMounted(() => {
       }
     }
     &.is-expand{width: 220px;}
-    .tui-cda-assist{cursor: pointer; height: 40px; width: 40px; .bgc(var(--shadow-base)); .bdra(5px); .poa; right:10px; bottom:10px; .centerFlex; z-index: 10;
-      .tui-icon{ .ani(.2s); .fc(fade(@wh,60%)); font-size:16px;}
+    .tui-cda-assist{cursor: pointer; height: 40px; width: 40px; background-color: var(--shadow-base); border-radius: 5px; position: absolute; right:10px; bottom:10px; display: flex; justify-content: center; align-items: center; z-index: 10;
+      .tui-icon{ transition-duration: .2s; transition-timing-function: cubic-bezier(0.78, 0.02, 0.2, 1); transition-delay: 0s; transition-property: all; color: fade(#fff,60%); font-size:16px;}
     }
   }
   
   .tui-cda-nav{  flex:1; height:1px;
-    --tui-nav-fc:fade(@wh,60%);
+    --tui-nav-fc:fade(#fff,60%);
     --tui-nav-fc_hov:var(--primary-base);
     --tui-nav-fc_act:var(--primary-base);
 
@@ -181,18 +181,18 @@ onMounted(() => {
     --tui-nav-collapse-width:60px;
     --tui-nav-level-line:var(--trans-light-10);
     .tui-nav-content{
-      &:before{position: absolute; content:" ";.ani(1s); .bgc(@tr); box-shadow:0 0 30px 4px @tr; .bdra(0 5px 5px 0); width: 3px; height:36px; left:0; top:50%; .fixc("y");}
+      &:before{position: absolute; content:" ";transition-duration: 1s; transition-timing-function: cubic-bezier(0.78, 0.02, 0.2, 1); transition-delay: 0s; transition-property: all; background-color:transparent; box-shadow:0 0 30px 4px transparent; border-radius: 0 5px 5px 0; width: 3px; height:36px; left:0; top:50%; transform: translateY(-50%);}
       &.is-active:not(.is-opened),
-      &.is-current{ .bgc(var(--sider-bg_act));
-        &:before{ .bgc(var(--sider-focus)); box-shadow:0 0 30px 4px var(--sider-focus); }
+      &.is-current{ background-color: var(--sider-bg_act);
+        &:before{ background-color: var(--sider-focus); box-shadow:0 0 30px 4px var(--sider-focus); }
       }
     }
     --tui-scroll-track:transparent;
   }
   .toggle-cp-btn{margin:0 5px;}
-  .tui-cda-cont{flex:1; overflow: auto; .por;
-    .controlPanel-btn{.poa; right:4px; top:4px;z-index: 10; }
+  .tui-cda-cont{flex:1; overflow: auto; position: relative;
+    .controlPanel-btn{position: absolute; right:4px; top:4px;z-index: 10; }
   }
 }
-.penetration-wrap{.centerFlex; .centerAbsolute; .bgc(@rel5); .bgc(var(--primary-base_op2)); .bd(var(--tone-strongest),1px); margin:50px 0 0 0; .bdra(50%); height: 200px; width: 200px; font-size: 12px; }
+.penetration-wrap{display: flex; justify-content: center; align-items: center; position: absolute; top:50%; left:50%; transform: translateX(-50%) translateY(-50%) scale(1);  background-color: var(--primary-base_op2); border: 1px solid var(--tone-strongest); margin:50px 0 0 0; border-radius: 50%; height: 200px; width: 200px; font-size: 12px; }
 </style>

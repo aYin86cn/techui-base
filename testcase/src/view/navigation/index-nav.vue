@@ -20,7 +20,6 @@ const components={
 const defAsyncComp=()=>{
   for(let a in components){
     components[a]=defineAsyncComponent(components[a])
-    
   }
   // defineAsyncComponent
 }
@@ -31,7 +30,7 @@ const route = useRoute();
 const state=reactive({
   compsRaw:{},
   actQuery:"1",
-  actLabel:"dashboard",
+  actLabel:"tuiIntro",
   isCollapse:false,
   navData:[ ],
   loading:true,
@@ -91,12 +90,7 @@ onBeforeMount(()=>{
 onMounted(() => {
   // console.log("index-nav----------------");
   defAsyncComp()
-  // Object.keys(components).forEach(key => {
-  //   state.compsRaw[key] = markRaw(components[key]);
-  // });
-  // console.log("router",router);
-  // console.log("route",route);
-  // console.log("tObj.ieEmpty",tObj.isEmpty(route.query),route.query);
+  
   if(tObj.isEmpty(route.query)){
     updateRouteQuery({
       navQuery:state.actQuery,
