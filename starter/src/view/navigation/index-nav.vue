@@ -31,7 +31,7 @@ const route = useRoute();
 const state=reactive({
   compsRaw:{},
   actQuery:"1",
-  actLabel:"dashboard",
+  actLabel:"tuiIntro",
   isCollapse:false,
   navData:[ ],
   loading:true,
