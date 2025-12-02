@@ -17,8 +17,8 @@ const params={
   app,
   debug:true,
   features:{
-    echarts:true,
-    advanced:true,
+    // echarts:true,
+    // advanced:true,
   }
 }
 TechUIInit(params).then(()=>{
